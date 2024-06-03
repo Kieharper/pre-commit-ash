@@ -1,5 +1,5 @@
 - id: ash
-  name: ash
+  name: ASH (Automated Security Helper)
   description: Runs 'ash' command
   entry: ash-go
   verbose: true
