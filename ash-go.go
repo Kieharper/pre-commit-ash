@@ -93,9 +93,16 @@ func main() {
 		return
 	}
 	if filePath != "" {
-		err = os.Remove(filePath)
-		if err != nil {
-			fmt.Println("Error deleting file:", err)
+		if _, err := os.Stat(filePath); err == nil {
+			err = os.Remove(filePath)
+			if err != nil {
+				fmt.Println("Error deleting file:", err)
+				return
+			}
+		} else if os.IsNotExist(err) {
+			fmt.Println("File does not exist, no need to delete")
+		} else {
+			fmt.Println("Error checking if file exists:", err)
 			return
 		}
 	}
@@ -129,13 +136,8 @@ func main() {
 	}()
 
 	// Run the ASH tool
-	// cmd = exec.Command("ash")
 	cmd = exec.Command("ash")
 	err = cmd.Run()
-	// if err != nil {
-	// 	fmt.Println("Error running ASH tool:", err)
-	// 	return
-	// }
 
 	// When the ASH tool is done, send a signal on stopChan to stop the loading goroutine
 	stopChan <- true
