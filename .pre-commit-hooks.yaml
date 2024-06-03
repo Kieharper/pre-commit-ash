@@ -1,0 +1,7 @@
+- id: ash
+  name: ash
+  description: Runs 'ash' command
+  entry: ash-go
+  verbose: true
+  stages: [commit, merge-commit, push, manual]
+  language: script
