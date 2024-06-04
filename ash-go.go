@@ -162,7 +162,7 @@ func main() {
 		return
 	}
 	if filePath == "" {
-		fmt.Println("File 'aggregated_results.txt' not found.")
+		fmt.Println("File 'aggregated_results.txt' not found. Please ensure that the ASH tool is installed and configured correctly, and that it generates this file when run.")
 		return
 	}
 
