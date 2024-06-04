@@ -74,6 +74,7 @@ func main() {
 	}
 
 	// Search for the results file and delete it if it exists
+	// Search for the results file
 	var filePath string
 	err = filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -91,20 +92,6 @@ func main() {
 	if err != nil {
 		fmt.Println("Error searching for file:", err)
 		return
-	}
-	if filePath != "" {
-		if _, err := os.Stat(filePath); err == nil {
-			err = os.Remove(filePath)
-			if err != nil {
-				fmt.Println("Error deleting file:", err)
-				return
-			}
-		} else if os.IsNotExist(err) {
-			fmt.Println("File does not exist, no need to delete")
-		} else {
-			fmt.Println("Error checking if file exists:", err)
-			return
-		}
 	}
 
 	// Compile the patterns into regular expressions
