@@ -146,8 +146,7 @@ func main() {
 	filePath = ""
 	err = filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
-			fmt.Println("Error walking the path:", err)
-			return nil
+			return err
 		}
 		if info.IsDir() {
 			return nil
@@ -160,11 +159,11 @@ func main() {
 	})
 	if err != nil {
 		fmt.Println("Error searching for file:", err)
-		// Don't return here, just print the error and continue
+		return
 	}
 	if filePath == "" {
 		fmt.Println("File 'aggregated_results.txt' not found.")
-		// Don't return here, just print the message and continue
+		return
 	}
 
 	// Open the results file
