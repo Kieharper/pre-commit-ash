@@ -148,9 +148,6 @@ func main() {
 		fmt.Println("Error searching for file:", err)
 		return
 	}
-	if filePath == "" {
-		fmt.Println("File 'aggregated_results.txt' not found.")
-	}
 
 	// Open the results file
 	file, err := os.Open(filePath)
