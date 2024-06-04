@@ -176,6 +176,4 @@ func main() {
 	}
 	fmt.Println("Grype Output:")
 	printBetween(">>>>>> Begin Grype output", "<<<<<< End Grype output", "./ash_output/aggregated_results.txt") // Need to change so file path doesn't have to be specified.
-	fmt.Println("Syft Output:")
-	printBetween(">>>>>> Begin Syft output", "<<<<<< End Syft output", "./ash_output/aggregated_results.txt")
 }
