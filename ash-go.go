@@ -176,5 +176,5 @@ func main() {
 		fmt.Println("Error reading file:", err)
 	}
 
-	printBetween(">>>>>> Begin", "<<<<<< End", "./ash_output/aggregated_results.txt") // Need to change so file path doesn't have to be specified.
+	printBetween(">>>>>> Begin", "discovered vulnerabilities at or above the severity threshold", "./ash_output/aggregated_results.txt") // Need to change so file path doesn't have to be specified.
 }
