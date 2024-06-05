@@ -73,27 +73,6 @@ func main() {
 		// Add more patterns here...
 	}
 
-	// Search for the results file and delete it if it exists
-	// Search for the results file
-	var filePath string
-	err = filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
-		if err != nil {
-			return err
-		}
-		if info.IsDir() {
-			return nil
-		}
-		if info.Name() == "aggregated_results.txt" {
-			filePath = path
-			return filepath.SkipDir
-		}
-		return nil
-	})
-	if err != nil {
-		fmt.Println("Error searching for file:", err)
-		return
-	}
-
 	// Compile the patterns into regular expressions
 	regexps := make([]*regexp.Regexp, len(patterns))
 	for i, pattern := range patterns {
@@ -130,7 +109,7 @@ func main() {
 	stopChan <- true
 
 	// Search for the results file again
-	filePath = ""
+	var filePath string
 	err = filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -153,6 +132,7 @@ func main() {
 	file, err := os.Open(filePath)
 	if err != nil {
 		fmt.Println("Error opening file:", err)
+		return
 	}
 	defer file.Close()
 
