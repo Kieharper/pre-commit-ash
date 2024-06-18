@@ -82,7 +82,7 @@ func runASH() {
 	}()
 
 	// Run the ASH tool
-	cmd = exec.Command("ash")
+	cmd = exec.Command("ash", "--output-dir", "ash/")
 	err = cmd.Start() // Start the command and immediately return
 	err = cmd.Wait()  // Wait for the command to finish
 	close(stopChan)   // Signal the goroutine to stop printing dots
@@ -92,14 +92,14 @@ func runASH() {
 	}
 
 	// Copy the 'aggregated_results.txt' file to a new location
-	srcFile, err := os.Open("ash_output/aggregated_results.txt")
+	srcFile, err := os.Open("ash/aggregated_results.txt")
 	if err != nil {
 		fmt.Println("Error opening source file:", err)
 		return
 	}
 	defer srcFile.Close()
 
-	dstFile, err := os.Create("ash_output/aggregated_results_copy.txt")
+	dstFile, err := os.Create("ash/aggregated_results_copy.txt")
 	if err != nil {
 		fmt.Println("Error creating destination file:", err)
 		return
@@ -140,7 +140,7 @@ func analyzeFile() {
 
 	// Search for the results file again
 	var filePath string
-	err := filepath.Walk("ash_output/", func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk("ash/", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
