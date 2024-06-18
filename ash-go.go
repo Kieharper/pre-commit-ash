@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -87,6 +88,34 @@ func runASH() {
 	close(stopChan)   // Signal the goroutine to stop printing dots
 	if err != nil {
 		fmt.Println("Error running ASH:", err)
+		return
+	}
+
+	// Copy the 'aggregated_results.txt' file to a new location
+	srcFile, err := os.Open("ash_output/aggregated_results.txt")
+	if err != nil {
+		fmt.Println("Error opening source file:", err)
+		return
+	}
+	defer srcFile.Close()
+
+	dstFile, err := os.Create("ash_output/aggregated_results_copy.txt")
+	if err != nil {
+		fmt.Println("Error creating destination file:", err)
+		return
+	}
+	defer dstFile.Close()
+
+	_, err = io.Copy(dstFile, srcFile)
+	if err != nil {
+		fmt.Println("Error copying file:", err)
+		return
+	}
+
+	// Ensure that the copy is flushed to disk
+	err = dstFile.Sync()
+	if err != nil {
+		fmt.Println("Error syncing file:", err)
 		return
 	}
 }
