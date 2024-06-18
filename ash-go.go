@@ -86,11 +86,7 @@ func runASH() {
 	err = cmd.Wait()  // Wait for the command to finish
 	close(stopChan)   // Signal the goroutine to stop printing dots
 	if err != nil {
-		if exitError, ok := err.(*exec.ExitError); ok {
-			fmt.Println("ASH exited with status", exitError.ExitCode())
-		} else {
-			fmt.Println("Error running ASH:", err)
-		}
+		fmt.Println("Error running ASH:", err)
 		return
 	}
 }
