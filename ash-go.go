@@ -104,16 +104,7 @@ func main() {
 	// Run the ASH tool
 	cmd = exec.Command("ash")
 	err = cmd.Start() // Start the command and immediately return
-	if err != nil {
-		fmt.Println("Error starting 'ash':", err)
-		return
-	}
-
-	err = cmd.Wait() // Wait for the command to finish
-	if err != nil {
-		fmt.Println("Error waiting for 'ash':", err)
-		return
-	}
+	err = cmd.Wait()  // Wait for the command to finish
 
 	// When the ASH tool is done, send a signal on stopChan to stop the loading goroutine
 	stopChan <- true
