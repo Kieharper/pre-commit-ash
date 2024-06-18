@@ -15,8 +15,7 @@ import (
 func printBetween(start, end, filename string) {
 	file, err := os.Open(filename)
 	if err != nil {
-		fmt.Println("Error opening file:", err)
-		return
+		fmt.Println("Error opening file:-", err)
 	}
 	defer file.Close()
 
