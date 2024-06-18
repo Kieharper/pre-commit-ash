@@ -110,7 +110,7 @@ func main() {
 
 	// Search for the results file again
 	var filePath string
-	err = filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
+	err = filepath.Walk("ash_output/", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
@@ -156,7 +156,7 @@ func main() {
 	}
 
 	// var filePath string
-	err = filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
+	err = filepath.Walk("ash_output/", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
