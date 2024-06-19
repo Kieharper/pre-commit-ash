@@ -4,6 +4,7 @@
 
 1. ASH
 2. pre-commit-ash
+3. 
 
 ## 1. ASH
 
@@ -52,6 +53,6 @@ Configure your .pre-commit-config.yaml file to include ash:
       language: script
 ```
 
-## Notes:
+## 3. Notes:
 
 !!! Please ensure you add 'ash/' to your .gitignore file to avoid uploading the findings to your remote repo! !!!
