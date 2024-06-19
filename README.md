@@ -7,9 +7,9 @@
 
 ## 1. ASH
 
-Source: [ASH](https://github.com/awslabs/automated-security-helper?tab=readme-ov-file
+Source: [ASH](https://github.com/awslabs/automated-security-helper?tab=readme-ov-file)
 
-ASH Installation:
+ASH installation example:
 ``` 
 # Set up some variables
 REPO_DIR="${HOME}"/Documents/repos/reference
