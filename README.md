@@ -3,6 +3,7 @@
 ## Set-up steps:
 
 1. ASH
+2. pre-commit-ash
 
 ## 1. ASH
 
@@ -31,4 +32,22 @@ export PATH="${PATH}:${REPO_DIR}/${REPO_NAME}"
 
 # Execute the ash tool
 ash --version
+```
+
+## 2. pre-commit-ash
+
+Configure your .pre-commit-config.yaml file to include ash:
+
+```
+# Custom ASH hook 
+  - repo: git@git.tech.theverygroup.com:security/pre-commit-ash.git
+    rev: v0.1.8
+    hooks:
+    - id: ash
+      name: ASH (Automated Security Helper)
+      description: Runs 'ash'command 
+      entry: ash-go
+      verbose: true
+      stages: [commit, merge-commit, push, manual]
+      language: script
 ```
