@@ -55,4 +55,4 @@ Configure your .pre-commit-config.yaml file to include ash:
 
 ## 3. Notes:
 
-!!! Please ensure you add 'ash/' to your .gitignore file to avoid uploading the findings to your remote repo! !!!
+⚠️ Please ensure you add 'ash/' to your .gitignore file to avoid uploading the findings to your remote repo! ⚠️
