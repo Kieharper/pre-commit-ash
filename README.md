@@ -51,3 +51,7 @@ Configure your .pre-commit-config.yaml file to include ash:
       stages: [commit, merge-commit, push, manual]
       language: script
 ```
+
+## Notes:
+
+!!! Please ensure you add 'ash/' to your .gitignore file to avoid uploading the findings to your remote repo! !!!
