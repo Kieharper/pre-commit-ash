@@ -41,8 +41,8 @@ Configure your .pre-commit-config.yaml file to include ash:
 
 ```
 # Custom ASH hook 
-  - repo: git@git.tech.theverygroup.com:security/pre-commit-ash.git
-    rev: v0.1.8
+  - repo: git@git.tech.theverygroup.com:tech/information-security/pre-commit-ash.git
+    rev: v0.1.9
     hooks:
     - id: ash
       name: ASH (Automated Security Helper)
