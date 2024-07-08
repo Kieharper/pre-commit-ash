@@ -47,7 +47,7 @@ Configure your .pre-commit-config.yaml file to include ash:
     - id: ash
       name: ASH (Automated Security Helper)
       description: Runs 'ash'command 
-      entry: ash-go
+      entry: ash-go # This should be modified to use the relevant version required
       verbose: true
       stages: [commit, merge-commit, push, manual]
       language: script
@@ -56,3 +56,9 @@ Configure your .pre-commit-config.yaml file to include ash:
 ## 3. Notes:
 
 ⚠️ Please ensure you add 'ash/' to your .gitignore file to avoid uploading the findings to your remote repo! ⚠️
+
+To start using ash please make sure to install and configure the following:
+
+Tools installed to run Linux containers, such as Finch, Rancher Desktop, Podman Desktop, or Docker Desktop.
+This can be any command-line interface (CLI) + container engine combination; there is nothing in ASH that requires a specific container runtime.
+If on Windows, you will also likely need Windows Subsystem for Linux (WSL) installed as a prerequisite for the listed container engine tools. Please see the specific instructions for the tool of choice regarding Windows-specific prerequisites.
